@@ -5,14 +5,17 @@ import UserPathLocationTable from "./Components/UserPathLocationTable";
 import LocationsTable from "./Components/LocationsTable";
 import LocationManagerTable from "./Components/LocationManagerTable";
 import Menu from "./Components/Menu";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import './App.css';
-
 function App() {
+    if(window.location.href=='http://localhost:3000/'){
+        window.location.href='http://localhost:3000/home';
+    }
   return (
+      <div>
       <Router>
-    <div className="App">
+        <div className="App">
        <Switch>
            <Route path="/home">
                <SignIn/>
@@ -44,7 +47,10 @@ function App() {
        </Switch>
     </div>
       </Router>
+      </div>
   );
+
+
 }
 
 export default App;
